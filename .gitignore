@@ -1,3 +1,17 @@
+# Private Client Proposals, Handovers & Internal Specs
+Comparative Report.md
+Creator_Marketing_OS_Developer_Handover_MASTER_V2*.md
+*Handover*.md
+*Report*.md
+*.proposal.md
+/proposals/
+/client-docs/
+
+# Legacy HTML artifacts (migrated to Next.js)
+index.html
+styles.css
+app.js
+
 # dependencies
 /node_modules
 /.pnpm-store
