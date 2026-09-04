@@ -13,11 +13,18 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
   }
 
   body {
-    @apply bg-[#070913] text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-indigo-500/30 selection:text-indigo-200;
+    @apply bg-[#070913] text-slate-100 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-200;
     font-family: var(--font-plus-jakarta);
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    position: relative;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -25,7 +32,7 @@
   }
 }
 
-/* Ambient Glowing Background Orbs */
+/* Ambient Glowing Background Orbs (Constrained to Viewport) */
 .bg-glow-top {
   position: absolute;
   top: -150px;
@@ -36,42 +43,54 @@
   background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(217, 70, 239, 0.08) 40%, rgba(7, 9, 19, 0) 70%);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .bg-glow-middle {
   position: absolute;
   top: 1200px;
-  right: -200px;
-  width: min(700px, 90vw);
-  height: 700px;
+  right: -150px;
+  width: min(600px, 90vw);
+  height: 600px;
   background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .bg-glow-bottom {
   position: absolute;
   top: 2800px;
-  left: -200px;
-  width: min(800px, 95vw);
-  height: 800px;
+  left: -150px;
+  width: min(600px, 90vw);
+  height: 600px;
   background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(244, 114, 182, 0.05) 50%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 /* Glassmorphism Card Utilities */
 .glass-card {
-  @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl transition-all duration-300;
+  @apply bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl transition-all duration-300 max-w-full;
 }
 
 .glass-card:hover {
   @apply border-indigo-500/30 shadow-indigo-500/10;
 }
 
+/* Hide Scrollbar for Horizontal Touch Scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
